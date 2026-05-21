@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AudioWeave</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        audio {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AudioWeave: A Unified Framework for Audio Generation and Editing</h1>
+
+    <h2>Text-to-Audio Samples</h2>
+
+    <table>
+        <tr>
+            <th>Instruction</th>
+            <th>Generation Result</th>
+        </tr>
+
+        <tr>
+            <td>A telephone dialing tone followed by a plastic switch flipping</td>
+            <td>
+                <audio controls>
+                    <source src="demo\gen_result\Jfaj4P3us9M_27.wav" type="audio/mpeg">
+                </audio>
+            </td>
+        </tr>
+
+        <tr>
+            <td>A train horn blows and fades, then metal clacking occurs</td>
+            <td><audio controls><source src="demo\gen_result\JHhEjsAkZoc_20.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>An insect buzzing as plastic clacks and plastic slaps a hard surface</td>
+            <td><audio controls><source src="demo\gen_result\KVAIaRPry24_50.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>Heavy rainfall with a brief muffled thunder from outside</td>
+            <td><audio controls><source src="demo\gen_result\S8k47ME-YT4_100.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>Sanding and scraping followed by a man speaking</td>
+            <td><audio controls><source src="demo\gen_result\Tgxst7Ft9js_20.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>The wind is blowing, and a person is whistling a tune</td>
+            <td><audio controls><source src="demo\gen_result\uhSDBwVrEdo_40.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>Ambulance siren repeatedly and then continuous</td>
+            <td><audio controls><source src="demo\gen_result\VeCSHwtkBZU_30.wav"></audio></td>
+        </tr>
+
+        <tr>
+            <td>A toilet flushes and water drains</td>
+            <td><audio controls><source src="demo\gen_result\yRoKi7rhSRo_20.wav"></audio></td>
+        </tr>
+
+    </table>
+
+    <h2>Audio Editing Samples</h2>
+
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Instruction</th>
+            <th>Reference Audio</th>
+            <th>Editing Result</th>
+        </tr>
+
+        <tr>
+            <td rowspan="4">Adding</td>
+            <td>Insert a sound of pouring water at the end</td>
+            <td>
+                <audio controls>
+                    <source src="demo\ref\bg_end_564.wav">
+                </audio>
+            </td>
+            <td>
+                <audio controls>
+                    <source src="demo\edit_result\564.wav">
+                </audio>
+            </td>
+        </tr>
+        <tr>
+            <td>Put a sound of toilet flush at the midpoint</td>
+            <td><audio controls><source src="demo\ref\bg_mid_1509.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\1509.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Mix a sound of bird chipping throughout the audio</td>
+            <td><audio controls><source src="demo\ref\bg_long_start_40003.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\40003.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Add a sneezing at the beginning of the audio</td>
+            <td><audio controls><source src="demo\ref\bg_start_1474.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\1474.wav"></audio></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Removing</td>
+            <td>Drop laughing from the audio</td>
+            <td><audio controls><source src="demo\ref\mix_end_2449.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\bg_end_2449.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Remove the sound of cat meowing</td>
+            <td><audio controls><source src="demo\ref\mix_long_start_40002.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\40002.wav"></audio></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Replacement</td>
+            <td>Exchange clock tick with violin</td>
+            <td><audio controls><source src="demo\ref\rep_in_160012.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\160012.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Replace the sound of dog with sheep</td>
+            <td><audio controls><source src="demo\ref\rep_in_160017.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\rep_out_160017.wav"></audio></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Reordering</td>
+            <td>Reverse the order of pouring water and air conditioner</td>
+            <td><audio controls><source src="demo\ref\reorder_in_3913.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\3913.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Swap the order of rain and munching</td>
+            <td><audio controls><source src="demo\ref\reorder_in_2486.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\2486.wav"></audio></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Inpainting</td>
+            <td>Inpaint the audio</td>
+            <td><audio controls><source src="demo\ref\inpaint_gen_corrupted_0.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\0.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Complete the missing segment</td>
+            <td><audio controls><source src="demo\ref\inpaint_gen_corrupted_9.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\9.wav"></audio></td>
+        </tr>
+        <tr>
+            <td rowspan="2">Super-resolution</td>
+            <td>Synthesize the missing high frequencies</td>
+            <td><audio controls><source src="demo\ref\sr_lr_139.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\139.wav"></audio></td>
+        </tr>
+        <tr>
+            <td>Increase audio resolution</td>
+            <td><audio controls><source src="demo\ref\sr_lr_1232.wav"></audio></td>
+            <td><audio controls><source src="demo\edit_result\1232.wav"></audio></td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
